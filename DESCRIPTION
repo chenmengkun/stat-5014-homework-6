@@ -1,0 +1,19 @@
+Package: HijackGitHub
+Title: Running R Scripts on a Schedule with GitHub Actions
+Version: 0.0.1
+Authors@R: 
+    person(given = "Mengkun",
+           family = "Chen",
+           role = c("aut", "cre"),
+           email = "mengkun21@vt.edu")
+Description: This repo will render R reports on a schedule.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Imports:
+  remotes,
+  sessioninfo,
+  tinytex,
+  rmarkdown,
+  dplyr,
+  tidyquant,
+  knitr
