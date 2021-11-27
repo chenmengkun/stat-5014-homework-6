@@ -1,12 +1,12 @@
 ---
 title: "Stock plotter"
-author: "Student fun"
+author: "Mengkun Chen"
 output:
   pdf_document: default
   html_document:
     df_print: paged
 params:
-  symbols: AAPL
+  symbols: ['AAPL','MSFT','MRNA','BNTX','PFE']
   show_code: yes
 ---
 
