@@ -22,6 +22,7 @@ knitr::opts_chunk$set(
 library(tidyquant)
 library(dplyr)
 library(knitr)
+library(ggplot2)
 ```
 
 This report contains market data for `r params$symbols`.  To make for something to plot, I suggest you pull 7 days worth of data.
@@ -34,17 +35,20 @@ stock_data_tbl <- tq_get(
         to   = today()
     ) %>%
     select(symbol, date, adjusted)
-
 kable(stock_data_tbl,caption="Last 7 days of market close")
 ```
 
 ```{r}
 # Create plot with gain/loss
 ## you to do
+ggplot(data = stock_data_tbl, aes(x = date, y = adjusted, col = symbol)) + 
+  geom_line() + 
+  ylab("stock price")
 ```
 
 ```{r}
 # save data 
 # do you want to have a single running RDS file, or a file for every time this runs
 # up to you to decide
+saveRDS(stock_data_tbl, "../data/stock.RDS")
 ```
