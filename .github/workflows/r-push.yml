@@ -49,10 +49,8 @@ jobs:
         run: |
           tinytex::install_tinytex()
         shell: Rscript {0}
-      - name: Generate data
-        run: |
-          source("R/test.R")
-        shell: Rscript {0} 
+      - name: Generate Report
+        run: Rscript render.R
       - name: Commit files
         run: |
           git config --local user.email "actions@github.com"
