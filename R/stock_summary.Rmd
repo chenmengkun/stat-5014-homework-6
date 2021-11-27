@@ -1,0 +1,50 @@
+---
+title: "Stock plotter"
+author: "Student fun"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+params:
+  symbols: AAPL
+  show_code: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+    echo    = as.logical(params$show_code),
+    message = FALSE, 
+    warning = FALSE
+)
+```
+
+```{r}
+library(tidyquant)
+library(dplyr)
+library(knitr)
+```
+
+This report contains market data for `r params$symbols`.  To make for something to plot, I suggest you pull 7 days worth of data.
+
+```{r}
+# Get data
+stock_data_tbl <- tq_get(
+        x    = params$symbols,
+        from = today()-7, 
+        to   = today()
+    ) %>%
+    select(symbol, date, adjusted)
+
+kable(stock_data_tbl,caption="Last 7 days of market close")
+```
+
+```{r}
+# Create plot with gain/loss
+## you to do
+```
+
+```{r}
+# save data 
+# do you want to have a single running RDS file, or a file for every time this runs
+# up to you to decide
+```
